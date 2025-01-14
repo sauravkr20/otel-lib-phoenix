@@ -19,6 +19,14 @@ config :book_store, BookStoreWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:book_store, ~w(--watch)]}
   ]
 
+
+config :book_store, BookStore.Repo,
+  username: "postgres",
+  password: "admin",
+  database: "book_store_dev",
+  hostname: "localhost",
+  pool_size: 10
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

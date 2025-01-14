@@ -83,9 +83,11 @@ defmodule BookStoreWeb do
     quote do
       # HTML escaping functionality
       import Phoenix.HTML
+
       # Core UI components and translation
       import BookStoreWeb.CoreComponents
       import BookStoreWeb.Gettext
+      import Phoenix.Component
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

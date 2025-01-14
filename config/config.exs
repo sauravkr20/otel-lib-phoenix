@@ -10,6 +10,8 @@ import Config
 config :book_store,
   generators: [timestamp_type: :utc_datetime]
 
+config :book_store, ecto_repos: [BookStore.Repo]
+
 # Configures the endpoint
 config :book_store, BookStoreWeb.Endpoint,
   url: [host: "localhost"],

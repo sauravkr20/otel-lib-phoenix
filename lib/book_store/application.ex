@@ -8,6 +8,7 @@ defmodule BookStore.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      BookStore.Repo,
       BookStoreWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:book_store, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: BookStore.PubSub},

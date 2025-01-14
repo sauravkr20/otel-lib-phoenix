@@ -1,23 +1,24 @@
-<.header>
-  Listing Books
-  <:actions>
-    <.link href={~p"/books/new"}>
-      <.button>New Book</.button>
-    </.link>
-  </:actions>
-</.header>
+<h1>Listing Books</h1>
 
-<.table id="books" rows={@books} row_click={&JS.navigate(~p"/books/#{&1}")}>
-  <:col :let={book} label="Title">{book.title}</:col>
-  <:action :let={book}>
-    <div class="sr-only">
-      <.link navigate={~p"/books/#{book}"}>Show</.link>
-    </div>
-    <.link navigate={~p"/books/#{book}/edit"}>Edit</.link>
-  </:action>
-  <:action :let={book}>
-    <.link href={~p"/books/#{book}"} method="delete" data-confirm="Are you sure?">
-      Delete
-    </.link>
-  </:action>
-</.table>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for book <- @books do %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.isbn %></td>
+        <td>
+          <.link href={~p"/books/#{book}"}>Show</.link>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
